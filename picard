@@ -1,0 +1,16 @@
+#!/bin/bash
+#BSUB -J picard
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/error-%J.err
+
+#bsub -q queue < /path/to/picard.lsf
+
+echo ‘—Loading picard—‘
+module load picard-tools-1.84
+module load java
+
+	
+echo ‘—Running picard—‘
+
+echo ‘—Sample 1—‘
+java -Xmx4G -XX:MaxPermSize=1G -jar /path/to/source/picard-tools-1.84/picard-tools-1.84/MarkDuplicates.jar I=/path/to/input.bam  O=/path/to/output.bam M=/path/to/metrics/output.txt REMOVE_DUPLICATES=true
