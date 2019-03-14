@@ -1,0 +1,16 @@
+#BSUB -J bowtie2
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/error-%J.err
+
+#bsub -q queue < /path/to/bowtie2.lsf
+
+echo ‘—Loading bowtie2—‘
+module load bowtie2/2.2.2
+module load samtools/1.4.1
+
+	
+echo ‘—Running bowtie2—‘
+
+#for ATAC
+echo ‘—Sample 1 —‘
+bowtie2 -X2000 --sensitive-local -x /path/to/Bowtie2Index/genome -1 /first/read/of/pair.fastq.gz -2 /second/read/of/pair.fastq.gz -S /path/to/output.sam 
