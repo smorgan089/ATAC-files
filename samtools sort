@@ -1,0 +1,10 @@
+#!/bin/bash
+#BSUB -J samtoolssort
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/error-%J.err
+
+#bsub -q queue < /path/to/samtoolssort.lsf
+
+module load samtools/1.4.1
+
+samtools sort -o /path/to/output.bam /path/to/input.sam
