@@ -1,0 +1,9 @@
+#!/bin/bash
+#BSUB -J homer
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/error-%J.err
+
+#bsub -q queue < /path/to/homer_annotation.lsf
+
+
+annotatePeaks.pl /path/to/peaks/file hg38 > /path/to/output.txt
