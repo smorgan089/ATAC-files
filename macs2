@@ -1,0 +1,15 @@
+#!/bin/bash
+#BSUB -J macs2
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/error-%J.err
+
+#bsub -q queue < /path/to/macs2.lsf
+
+echo ‘—Loading modules—‘
+module load python/2.7.3
+module load numpy-1.7
+module load macs2/2.0.10
+
+echo ‘—Running macs2—‘
+echo ‘—Sample 1—‘
+macs2 callpeak -t /path/to/input.bam -f BAMPE -g hs -n output_name --nomodel --nolambda --keep-dup all --call-summits 
