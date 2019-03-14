@@ -1,0 +1,16 @@
+#!/bin/bash
+#BSUB -J name
+#BSUB -o /path/to/logfile-%J.out
+#BSUB -e /path/to/logfile-%J.err
+
+#bsub -q queue < /path/to/cutadapt.lsf
+
+echo ‘—Loading cutadapt—‘
+module load python/2.7.3
+module load cutadapt/1.4.2
+	
+echo ‘—Running cutadapt—‘
+
+echo ‘—Sample 1 —‘
+cutadapt -q 30 --minimum-length 36 -a CTGTCTCTTATACACATCT -a AGATGTGTATAAGAGACAG -o /path/to/first/of/paired/files/output.fastq.gz -p /path/to/complementary/pair/file/output.fastq.gz /path/to/input/pair/read1.fq.gz /path/to/input/pair/read2fq.gz
+#adapters here are for Nextera Tn5 Transposase
