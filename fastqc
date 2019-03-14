@@ -1,0 +1,18 @@
+#!/bin/bash
+#BSUB -J fastqc
+#BSUB -o /path/to/logfile/output-%J.out
+#BSUB -e /path/to/logfile/errorc-%J.err
+
+# Run command:
+# —
+# cd ~
+# bsub -q queue < /path/to/fastqc.lsf
+# —
+
+
+
+#echo ‘—Loading FASTQC—‘
+module load fastqc/0.10.1	
+
+echo ‘—Running FASTQC—‘
+fastqc file.fastq.gz 
